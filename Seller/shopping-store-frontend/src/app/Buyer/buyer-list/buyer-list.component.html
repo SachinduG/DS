@@ -1,0 +1,32 @@
+<h2 style="align-content: center"> Buyer List </h2>
+<a style="margin-left: 1135px" routerLink="/add-buyer"><button class="btn btn-success pull-right" >Add a new Buyer +</button></a>
+<table class = "table table-striped">
+  <thead>
+  <tr>
+    <th> Buyer Name </th>
+    <th> Buyer Email Address </th>
+    <th> Buyer Mobile Number </th>
+    <th> Buyer Home Address </th>
+    <th> View Item</th>
+    <th> Update Item</th>
+    <th> Delete Item</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let buyer of buyers">
+    <td> {{buyer.buyerName!}} </td>
+    <td>{{buyer.buyerEmail!}}</td>
+    <td>{{buyer.buyerMobile!}}</td>
+    <td>{{buyer.buyerAddress!}}</td>
+    <td>
+      <button (click) = "buyerDetails(buyer.id)" class= "btn btn-info" style="margin-left: 10px; background-color: #669999"> View </button>
+    </td>
+    <td>
+      <button (click) = "updateBuyer(buyer.id)" class= "btn btn-info"> Update </button>
+    </td>
+    <td>
+      <button (click) = "deleteBuyer(buyer.id)" class= "btn btn-danger" style="margin-left: 10px"> Delete </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
