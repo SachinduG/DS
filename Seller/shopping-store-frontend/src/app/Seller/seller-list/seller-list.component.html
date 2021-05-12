@@ -6,6 +6,7 @@
     <th> Seller Name </th>
     <th> Seller Email Address </th>
     <th> Seller Mobile Number </th>
+    <th> Seller Password </th>
     <th> View Item</th>
     <th> Update Item</th>
     <th> Delete Item</th>
@@ -16,6 +17,7 @@
     <td> {{seller.sellerName!}} </td>
     <td>{{seller.sellerEmail!}}</td>
     <td>{{seller.sellerMobile!}}</td>
+    <td>{{seller.sellerPassword!}}</td>
     <td>
       <button (click) = "sellerDetails(seller.id)" class= "btn btn-info" style="margin-left: 10px; background-color: #669999"> View </button>
     </td>

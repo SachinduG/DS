@@ -20,14 +20,18 @@ public class Seller {
     @Column(name = "seller_mobile")
     private String sellerMobile;
 
+    @Column(name = "seller_password")
+    private String sellerPassword;
+
     public Seller() {
     }
 
-    public Seller(long id, String sellerName, String sellerEmail, String sellerMobile) {
+    public Seller(long id, String sellerName, String sellerEmail, String sellerMobile, String sellerPassword) {
         this.id = id;
         this.sellerName = sellerName;
         this.sellerEmail = sellerEmail;
         this.sellerMobile = sellerMobile;
+        this.sellerPassword = sellerPassword;
     }
 
     public long getId() {
@@ -62,4 +66,11 @@ public class Seller {
         this.sellerMobile = sellerMobile;
     }
 
+    public String getSellerPassword() {
+        return sellerPassword;
+    }
+
+    public void setSellerPassword(String sellerPassword) {
+        this.sellerPassword = sellerPassword;
+    }
 }

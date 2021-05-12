@@ -57,6 +57,7 @@ public class SellerController {
         seller.setSellerName(sellerDetails.getSellerName());
         seller.setSellerEmail(sellerDetails.getSellerEmail());
         seller.setSellerMobile(sellerDetails.getSellerMobile());
+        seller.setSellerPassword(sellerDetails.getSellerPassword());
 
         Seller updatedSeller = sellerRepository.save(seller);
         return ResponseEntity.ok(updatedSeller);
