@@ -10,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SellerDetailsComponent implements OnInit {
 
-  id!: number
-  seller!: Seller
+  id!: number;
+  seller!: Seller;
   constructor(private sellerService: SellerService,
               private route: ActivatedRoute) { }
 

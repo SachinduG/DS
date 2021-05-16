@@ -15,10 +15,6 @@ export class SellerService {
     return this.httpClient.get<Seller[]>(`${this.baseURL}`);
   }
 
-  addSeller(seller: Seller): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, seller);
-  }
-
   getSellerById(id: number): Observable<Seller>{
     return this.httpClient.get<Seller>(`${this.baseURL}/${id}`);
   }

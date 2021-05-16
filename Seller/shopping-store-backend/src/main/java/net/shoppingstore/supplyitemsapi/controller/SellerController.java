@@ -3,21 +3,10 @@ package net.shoppingstore.supplyitemsapi.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
-import net.shoppingstore.supplyitemsapi.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import net.shoppingstore.supplyitemsapi.exception.ResourceNotFoundException;
 import net.shoppingstore.supplyitemsapi.model.Seller;
 import net.shoppingstore.supplyitemsapi.repository.SellerRepository;
@@ -27,33 +16,13 @@ import net.shoppingstore.supplyitemsapi.repository.SellerRepository;
 @RequestMapping("/api/v1/")
 public class SellerController {
 
-    private final SellerService sellerService;
-
-    @Autowired
-    public SellerController(SellerService sellerService){
-        this.sellerService = sellerService;
-    }
-
     @Autowired
     private SellerRepository sellerRepository;
 
-    @GetMapping("/login")
-    public ResponseEntity<Seller> seller(@PathVariable Long id) {
-        Optional<Seller> seller = sellerRepository.findById(id);
-        return seller.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound()
-                        .build());
-    }
     //get all sellers
     @GetMapping("/sellers")
     public List<Seller> getAllSellers(){
         return sellerRepository.findAll();
-    }
-
-    // create seller rest api
-    @PostMapping("/sellers")
-    public Seller createSeller(@RequestBody Seller seller) {
-        return sellerRepository.save(seller);
     }
 
     //get seller by id rest api
@@ -70,9 +39,8 @@ public class SellerController {
         Seller seller = sellerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Seller not exist with id:" +id));
         seller.setSellerName(sellerDetails.getSellerName());
-        seller.setSellerEmail(sellerDetails.getSellerEmail());
-        seller.setSellerMobile(sellerDetails.getSellerMobile());
-        seller.setSellerPassword(sellerDetails.getSellerPassword());
+        seller.setEmail(sellerDetails.getEmail());
+        seller.setPassword(sellerDetails.getPassword());
 
         Seller updatedSeller = sellerRepository.save(seller);
         return ResponseEntity.ok(updatedSeller);

@@ -1,6 +1,5 @@
 package net.shoppingstore.supplyitemsapi.model;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -14,24 +13,20 @@ public class Seller {
     @Column(name = "seller_name")
     private String sellerName;
 
-    @Column(name = "seller_email")
-    private String sellerEmail;
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "seller_mobile")
-    private String sellerMobile;
-
-    @Column(name = "seller_password")
-    private String sellerPassword;
+    @Column(name = "password")
+    private String password;
 
     public Seller() {
     }
 
-    public Seller(long id, String sellerName, String sellerEmail, String sellerMobile, String sellerPassword) {
+    public Seller(long id, String sellerName, String email, String password) {
         this.id = id;
         this.sellerName = sellerName;
-        this.sellerEmail = sellerEmail;
-        this.sellerMobile = sellerMobile;
-        this.sellerPassword = sellerPassword;
+        this.email = email;
+        this.password = password;
     }
 
     public long getId() {
@@ -50,27 +45,19 @@ public class Seller {
         this.sellerName = sellerName;
     }
 
-    public String getSellerEmail() {
-        return sellerEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSellerEmail(String sellerEmail) {
-        this.sellerEmail = sellerEmail;
+    public void setEmail(String sellerEmail) {
+        this.email = email;
     }
 
-    public String getSellerMobile() {
-        return sellerMobile;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSellerMobile(String sellerMobile) {
-        this.sellerMobile = sellerMobile;
-    }
-
-    public String getSellerPassword() {
-        return sellerPassword;
-    }
-
-    public void setSellerPassword(String sellerPassword) {
-        this.sellerPassword = sellerPassword;
+    public void setPassword(String sellerPassword) {
+        this.password = password;
     }
 }
