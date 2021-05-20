@@ -10,34 +10,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "items")
 public class Item {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(name = "item_name")
 	private String itemName;
-	
+
 	@Column(name = "item_category")
 	private String itemCategory;
-	
+
 	@Column(name = "item_cost")
 	private double itemCost;
-	
+
 	@Column(name = "item_selling_price")
 	private double itemSellingPrice;
-	
+
 	@Column(name = "item_quantity")
 	private int itemQuantity;
-	
+
 	public Item() {
-		
+
 	}
 
-	
-	
+
+
 	public Item(String itemName, String itemCategory, double itemCost, double itemSellingPrice,
-			int itemQuantity) {
+				int itemQuantity) {
 		super();
 		this.itemName = itemName;
 		this.itemCategory = itemCategory;
@@ -94,7 +94,7 @@ public class Item {
 	public void setItemQuantity(int itemQuantity) {
 		this.itemQuantity = itemQuantity;
 	}
-	
 
-	
+
+
 }

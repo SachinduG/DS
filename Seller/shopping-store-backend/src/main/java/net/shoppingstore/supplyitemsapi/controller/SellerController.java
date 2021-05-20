@@ -16,6 +16,7 @@ import net.shoppingstore.supplyitemsapi.repository.SellerRepository;
 @RequestMapping("/api/v1/")
 public class SellerController {
 
+
     @Autowired
     private SellerRepository sellerRepository;
 
@@ -31,19 +32,6 @@ public class SellerController {
         Seller seller = sellerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Seller not exist with id:" +id));
         return ResponseEntity.ok(seller);
-    }
-
-    //update seller rest api
-    @PutMapping("/sellers/{id}")
-    public ResponseEntity<Seller> updateSeller(@PathVariable Long id, @RequestBody Seller sellerDetails){
-        Seller seller = sellerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Seller not exist with id:" +id));
-        seller.setSellerName(sellerDetails.getSellerName());
-        seller.setEmail(sellerDetails.getEmail());
-        seller.setPassword(sellerDetails.getPassword());
-
-        Seller updatedSeller = sellerRepository.save(seller);
-        return ResponseEntity.ok(updatedSeller);
     }
 
     //delete seller rest api

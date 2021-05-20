@@ -4,20 +4,16 @@
   <tr>
     <th> Seller Name </th>
     <th> Seller Email Address </th>
-    <th> View Item</th>
-    <th> Update Item</th>
-    <th> Delete Item</th>
+    <th> View Seller</th>
+    <th> Delete Seller</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor = "let seller of sellers">
-    <td> {{seller.sellerName!}} </td>
+    <td> {{seller.name!}} </td>
     <td>{{seller.email!}}</td>
     <td>
       <button (click) = "sellerDetails(seller.id)" class= "btn btn-info" style="margin-left: 10px; background-color: #669999"> View </button>
-    </td>
-    <td>
-      <button (click) = "updateSeller(seller.id)" class= "btn btn-info"> Update </button>
     </td>
     <td>
       <button (click) = "deleteSeller(seller.id)" class= "btn btn-danger" style="margin-left: 10px"> Delete </button>

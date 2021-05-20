@@ -24,23 +24,23 @@ import net.shoppingstore.supplyitemsapi.repository.ItemRepository;
 @RestController
 @RequestMapping("/api/v1/")
 public class ItemController {
-	
+
 	@Autowired
 	private ItemRepository itemRepository;
-	
+
 	//get all items
 	//@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/items")
 	public List<Item> getAllItems(){
 		return itemRepository.findAll();
 	}
-	
+
 	// create item rest api
 	@PostMapping("/items")
 	public Item createItem(@RequestBody Item item) {
 		return itemRepository.save(item);
 	}
-	
+
 	//get item by id rest api
 	@GetMapping("/items/{id}")
 	public ResponseEntity<Item> getItemById(@PathVariable Long id) {
@@ -48,7 +48,7 @@ public class ItemController {
 				.orElseThrow(() -> new ResourceNotFoundException("Item not exist with id:" +id));
 		return ResponseEntity.ok(item);
 	}
-	
+
 	//update item rest api
 	@PutMapping("/items/{id}")
 	public ResponseEntity<Item> updateItem(@PathVariable Long id, @RequestBody Item itemDetails){
@@ -59,17 +59,17 @@ public class ItemController {
 		item.setItemCost(itemDetails.getItemCost());
 		item.setItemSellingPrice(itemDetails.getItemSellingPrice());
 		item.setItemQuantity(itemDetails.getItemQuantity());
-		
+
 		Item updatedItem = itemRepository.save(item);
 		return ResponseEntity.ok(updatedItem);
 	}
-	
+
 	//delete item rest api
 	@DeleteMapping("items/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteItem(@PathVariable Long id){
 		Item item = itemRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Item not exist with id:" +id));
-		
+
 		itemRepository.delete(item);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("Deleted", Boolean.TRUE);

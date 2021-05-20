@@ -9,9 +9,9 @@ import {UpdateBuyerComponent} from './Buyer/update-buyer/update-buyer.component'
 import {BuyerDetailsComponent} from './Buyer/buyer-details/buyer-details.component';
 import {SellerListComponent} from './Seller/seller-list/seller-list.component';
 import {SellerDetailsComponent} from './Seller/seller-details/seller-details.component';
-import {UpdateSellerComponent} from './Seller/update-seller/update-seller.component';
 
 const routes: Routes = [
+
   {path: 'items', component: ItemListComponent},
   {path: 'add-item', component: AddItemComponent},
   {path: '', redirectTo: 'items', pathMatch: 'full'},
@@ -23,7 +23,6 @@ const routes: Routes = [
   {path: 'buyer-details/:id', component: BuyerDetailsComponent},
   {path: 'sellers', component: SellerListComponent},
   {path: '', redirectTo: 'sellers', pathMatch: 'full'},
-  {path: 'update-seller/:id', component: UpdateSellerComponent},
   {path: 'seller-details/:id', component: SellerDetailsComponent}
 ];
 

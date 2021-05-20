@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +11,6 @@ import { UpdateItemComponent } from './Item/update-item/update-item.component';
 import { ItemDetailsComponent } from './Item/item-details/item-details.component';
 import { SellerDetailsComponent } from './Seller/seller-details/seller-details.component';
 import { SellerListComponent } from './Seller/seller-list/seller-list.component';
-import { UpdateSellerComponent } from './Seller/update-seller/update-seller.component';
 import { BuyerDetailsComponent } from './Buyer/buyer-details/buyer-details.component';
 import { BuyerListComponent } from './Buyer/buyer-list/buyer-list.component';
 import { UpdateBuyerComponent } from './Buyer/update-buyer/update-buyer.component';
@@ -25,10 +24,9 @@ import { UpdateBuyerComponent } from './Buyer/update-buyer/update-buyer.componen
     ItemDetailsComponent,
     SellerDetailsComponent,
     SellerListComponent,
-    UpdateSellerComponent,
     BuyerDetailsComponent,
     BuyerListComponent,
-    UpdateBuyerComponent
+    UpdateBuyerComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +34,8 @@ import { UpdateBuyerComponent } from './Buyer/update-buyer/update-buyer.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

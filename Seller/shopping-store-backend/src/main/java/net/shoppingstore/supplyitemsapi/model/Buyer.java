@@ -27,6 +27,7 @@ public class Buyer {
     }
 
     public Buyer(long id, String buyerName, String buyerEmail, String buyerMobile, String buyerAddress) {
+        super();
         this.id = id;
         this.buyerName = buyerName;
         this.buyerEmail = buyerEmail;
